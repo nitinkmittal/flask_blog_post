@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+<!-- block - content is being overridden here -->
+{% block content %}
+<!-- page content -->
+{% for post in posts %}
+<!-- code block -->
+<h1>{{post.title}}</h1>
+<p>By {{post.author}} on {{post.date}}</p>
+<p>{{post.content}}</h1>
+    {% endfor %}
+    {% endblock content %}

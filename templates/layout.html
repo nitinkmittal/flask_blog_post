@@ -1,0 +1,18 @@
+<!-- layout.html can be used as base html-->
+<!DOCTYPE html>
+<html>
+
+    <head>
+        {% if title %}
+        <title>Flasg Blog - {{title}}</title>
+        {% else %}
+        <title>Flask Blog</title>
+        {% endif %}
+    </head>
+
+    <body>
+        <!-- body block can be overridden, name of the block can be anything -->
+        {% block content%}{%endblock%}
+    </body>
+
+</html>
