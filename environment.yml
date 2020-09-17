@@ -6,3 +6,6 @@ dependencies:
   - ipykernel
   - pip
   - python
+  - pip:
+    - black
+    - pre-commit
