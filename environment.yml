@@ -1,0 +1,8 @@
+name: blog_post_flask
+channels:
+  - conda-forge
+dependencies:
+  - flask
+  - ipykernel
+  - pip
+  - python
