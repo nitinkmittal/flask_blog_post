@@ -1,0 +1,29 @@
+[tool.black]
+line-length = 88
+target-version = ['py38']
+include = '\.pyi?$'
+exclude = '''
+
+(
+  /(
+      \.eggs         # exclude a few common directories in the
+    | \.git          # root of the project
+    | \templates
+    | \.hg
+    | \.mypy_cache
+    | \.tox
+    | \.venv
+    | _build
+    | buck-out
+    | build
+    | dist
+  )/
+  | foo.py           # also separately exclude a file named foo.py in
+                     # the root of the project
+)
+'''
+# What on Earth is a pyproject.toml file?
+# PEP 518 defines pyproject.toml as a configuration file to store 
+# build system requirements for Python projects. 
+# With the help of tools like Poetry or Flit it can fully replace 
+# the need for setup.py and setup.cfg files.
