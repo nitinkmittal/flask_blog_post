@@ -6,6 +6,7 @@ dependencies:
   - ipykernel
   - pip
   - python
+  - flask-wtf
   - pip:
     - black
     - pre-commit
