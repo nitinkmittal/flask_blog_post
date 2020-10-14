@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+<!-- block - content is being overridden here -->
+{% block content %}
+
+<!-- page content -->
+<!-- content-section is a style in main.css -->
+<div class="content-section">
+    <!-- keeping action as an empty here will post this form to same route  -->
+    <form method="POST" action="">
+        <!-- accessing instance of RegisterForm, hidden tag is used cross site request forgery token (csrf token) for protection -->
+        {{form.hidden_tag()}}
+        <fieldset class="form-group">
+            <!-- mb-4 : margin-bottom-4 -->
+            <legend class="border-bottom mb-4">Log In</legend>
+            <div class="form-group">
+                {{ form.email.label(class="form-control-label") }}
+                {% if form.email.errors %}
+                {{ form.email(class="form-control form-control-lg is-invalid") }}
+                <div class="invalid-feedback">
+                    {% for error in form.email.errors %}
+                    <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                <!-- lg : large  -->
+                {{ form.email(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.password.label(class="form-control-label") }}
+                {% if form.password.errors %}
+                {{ form.password(class="form-control form-control-lg is-invalid") }}
+                <div class="invalid-feedback">
+                    {% for error in form.password.errors %}
+                    <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                <!-- lg : large  -->
+                {{ form.password(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+            <div class="form-check">
+                {{ form.remember(class="form-check-input") }}
+                {{ form.remember.label(class="form-check-label") }}
+            </div>
+        </fieldset>
+        <div class="form-group">
+            {{ form.submit(class ="btn btn-outline-info") }}
+        </div>
+        <small class="text-muted ml-2"><a href="#">Forgot Password?</a> </small>
+    </form>
+</div>
+<!-- pt : padding top 3 -->
+<div class="borde-top pt-3">
+    <!-- url_for with function name is used to reroute to login page using login function -->
+    <small class="text-muted">Need An Account? <a class="ml-2" href="{{ url_for('register') }}">Sign Up Now!</a></small>
+</div>
+
+{% endblock content %}

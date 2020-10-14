@@ -6,6 +6,8 @@ dependencies:
   - ipykernel
   - pip
   - python
+  - flask-wtf
+  - email_validator
   - pip:
     - black
     - pre-commit
