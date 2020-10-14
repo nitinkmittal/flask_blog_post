@@ -4,8 +4,15 @@
 <!-- page content -->
 {% for post in posts %}
 <!-- code block -->
-<h1>{{post.title}}</h1>
-<p>By {{post.author}} on {{post.date}}</p>
-<p>{{post.content}}</h1>
-    {% endfor %}
-    {% endblock content %}
+<article class="media content-section">
+    <div class="media-body">
+        <div class="article-metadata">
+            <a class="mr-2">{{ post.author }}</a>
+            <small class="text-muted">{{ post.date }}</small>
+        </div>
+        <h2><a class="article-title" href="#">{{ post.title }}</a></h2>
+        <p class="article-content">{{ post.content }}</p>
+    </div>
+</article>
+{% endfor %}
+{% endblock content %}
