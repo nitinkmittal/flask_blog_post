@@ -6,6 +6,8 @@ dependencies:
   - ipykernel
   - pip
   - python
+  - flask-bcrypt
+  - flask-login
   - flask-wtf
   - flask-sqlalchemy
   - email_validator

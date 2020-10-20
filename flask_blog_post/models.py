@@ -1,8 +1,18 @@
 from datetime import datetime
-from flask_blog_post import db
+from flask_blog_post import db, login_manager
+from flask_login import UserMixin
 
 
-class User(db.Model):
+# to manage user session
+@login_manager.user_loader
+def load_user(user_id):
+    # will return user for that particular user_id
+    # User.query.get(int(user_id)) capability given by UserMixin
+    return User.query.get(int(user_id))
+
+
+class User(db.Model, UserMixin):
+    # inheriting UserMixin class will enablle maintaining user_id for a user
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(20), unique=True, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
