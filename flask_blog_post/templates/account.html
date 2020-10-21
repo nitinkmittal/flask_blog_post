@@ -1,7 +1,15 @@
 {% extends "layout.html" %}
 <!-- block - content is being overridden here -->
 {% block content %}
-
+<div class="content-section">
+    <div class="media">
+        <img class="rounded-circle account-img" src="userimage.jpg"></img>
+        <div class="media-body">
+            <h2 class="account-heading">{{current_user.userimage}}</h2>
+            <p class="text-secondary">{{current_user.email}}</p>
+        </div>
+    </div>
+</div>
 <!-- page content -->
 <h1>{{ current_user.username}}</h1>
 
